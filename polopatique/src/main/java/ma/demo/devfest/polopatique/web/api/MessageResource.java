@@ -31,7 +31,12 @@ public class MessageResource extends HttpServlet {
             respond(resp, messageService.findMessages());
 
         } else {
-            respond(resp, messageService.getMessage(messageKey));
+            Message found = messageService.getMessage(messageKey);
+            if (found == null) {
+                respond(resp, 404, "Nic takoveho ona nema");
+            } else {
+                respond(resp, found);
+            }
         }
     }
 
@@ -83,7 +88,6 @@ public class MessageResource extends HttpServlet {
 
     private String readMessageIdFromRequest(HttpServletRequest req) {
         String path = req.getPathInfo();
-
         if (path == null || "".equals(path) || "/".equals(path) ) {
             return null;
 

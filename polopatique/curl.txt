@@ -1,3 +1,11 @@
+curl --include --header "Content-Type: application/json; charset=UTF-8" \
+     --request POST \
+     --data-binary "{
+        \"key\":\"prvni.klic\",
+        \"message\": \"První klíč je vždy nejlepší\!\"
+    }" http://localhost:8080/api/messages
+
+
 curl --include --header "Content-Type: application/json" \
      --request POST \
      --data-binary "{
@@ -7,3 +15,5 @@ curl --include --header "Content-Type: application/json" \
 
 
 curl --include --request GET http://localhost:8080/api/messages
+
+curl --include --request GET http://localhost:8080/api/messages/prvni.klic
