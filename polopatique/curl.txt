@@ -1,0 +1,9 @@
+curl --include --header "Content-Type: application/json" \
+     --request POST \
+     --data-binary "{
+        \"key\":\"druhy.klic\",
+        \"message\": \"Ahoj vsichni, tohle je druhý super message.\"
+    }" http://localhost:8080/api/messages
+
+
+curl --include --request GET http://localhost:8080/api/messages

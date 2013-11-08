@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactManager">
+    <artifact type="exploded-war" name="polopatique:war exploded">
+      <output-path>$PROJECT_DIR$/out/artifacts/polopatique_war_exploded</output-path>
+      <root id="root">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="polopatique" />
+          </element>
+          <element id="directory" name="lib">
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.googlecode.objectify/objectify/4.0b3/jar/28a51806cd2e2a7e867b2212cbfe83087b8030fc/objectify-4.0b3.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.inject.extensions/guice-servlet/4.0-beta/jar/46b44984f254c0bf92d0c972fad1a70292ada28e/guice-servlet-4.0-beta.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.appengine/appengine-api-1.0-sdk/1.8.6/jar/caac54b56b09ceff9419503ef1022323ef8a08f3/appengine-api-1.0-sdk-1.8.6.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.appengine/appengine-api-labs/1.8.6/jar/d6606e376fa4e4ab5557583d2edb4a6f3bde39b2/appengine-api-labs-1.8.6.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.code.gson/gson/2.2.4/jar/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.guava/guava/14.0.1/bundle/69e12f4c6aeac392555f1ea86fab82b5e5e31ad4/guava-14.0.1.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/javax.inject/javax.inject/1/jar/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/aopalliance/aopalliance/1.0/jar/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.ow2.asm/asm/4.0/jar/659add6efc75a4715d738e73f07505246edf4d66/asm-4.0.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/cglib/cglib/3.0/jar/a8149c14534eefa763a16534507dcbaec6eb0cf8/cglib-3.0.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.ow2.asm/asm-tree/4.0/jar/67bd266cd17adcee486b76952ece4cc85fe248b8/asm-tree-4.0.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/org.ow2.asm/asm-util/4.0/jar/d7a65f54cda284f9706a750c23d64830bb740c39/asm-util-4.0.jar" />
+            <element id="file-copy" path="$USER_HOME$/.gradle/caches/artifacts-26/filestore/com.google.inject/guice/4.0-beta/jar/a82be989679df08b66d48b42659a3ca2daaf1d5b/guice-4.0-beta.jar" />
+          </element>
+        </element>
+        <element id="javaee-facet-resources" facet="polopatique/web/Web" />
+      </root>
+    </artifact>
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Javac" />
+    <resourceExtensions>
+      <entry name=".+\.(properties|xml|html|dtd|tld)" />
+      <entry name=".+\.(gif|png|jpeg|jpg)" />
+    </resourceExtensions>
+    <wildcardResourcePatterns>
+      <entry name="!?*.groovy" />
+      <entry name="!?*.java" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="CopyrightManager" default="">
+    <module2copyright />
+  </component>
+  <component name="DependencyValidationManager">
+    <option name="SKIP_IMPORT_STATEMENTS" value="false" />
+  </component>
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="GradleUISettings">
+    <setting name="root" />
+  </component>
+  <component name="GradleUISettings2">
+    <setting name="root" />
+  </component>
+  <component name="IdProvider" IDEtalkID="11DA1DB66DD62DDA1ED602B7079FE97C" />
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" />
+    <option name="OPTION_SCOPE" value="protected" />
+    <option name="OPTION_HIERARCHY" value="true" />
+    <option name="OPTION_NAVIGATOR" value="true" />
+    <option name="OPTION_INDEX" value="true" />
+    <option name="OPTION_SEPARATE_INDEX" value="true" />
+    <option name="OPTION_DOCUMENT_TAG_USE" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_AUTHOR" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_VERSION" value="false" />
+    <option name="OPTION_DOCUMENT_TAG_DEPRECATED" value="true" />
+    <option name="OPTION_DEPRECATED_LIST" value="true" />
+    <option name="OTHER_OPTIONS" value="" />
+    <option name="HEAP_SIZE" />
+    <option name="LOCALE" />
+    <option name="OPEN_IN_BROWSER" value="true" />
+  </component>
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/polopatique.iml" filepath="$PROJECT_DIR$/polopatique.iml" />
+    </modules>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="" />
+  </component>
+</project>
+
