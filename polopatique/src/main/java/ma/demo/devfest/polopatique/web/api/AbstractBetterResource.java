@@ -76,9 +76,25 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
 
     }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        ID_TYPE recordKey = readRecordIdFromRequest(req);
 
-    private void respond(HttpServletResponse resp, int code, String record) throws IOException {
-        resp.sendError(code, record);
+        if (recordKey == null) {
+            respond(resp, 404, "Co to deletujes? Dej neco za lomitko.");
+            return;
+        }
+
+        deleteRecord(recordKey);
+        respond(resp, 200, "Deleted");
+    }
+
+    private void respond(HttpServletResponse resp, int code, String message) throws IOException {
+        if (code < 400) {
+            resp.setStatus(code);
+        } else {
+            resp.sendError(code, message);
+        }
     }
 
     private void respond(HttpServletResponse resp, Object data) throws IOException {
@@ -108,5 +124,7 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
     protected abstract ID_TYPE createRecord(RESOURCE_TYPE newRecord);
 
     protected abstract void updateRecord(RESOURCE_TYPE body, ID_TYPE recordKey);
+
+    protected abstract void deleteRecord(ID_TYPE recordKey);
 
 }

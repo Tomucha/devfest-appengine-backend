@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 @Singleton
 public class BetterMessageResource extends AbstractBetterResource<Message, String> {
 
-    @Inject
     private MessageService messageService;
+
+    @Inject
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     protected BetterMessageResource() {
         super(Message.class, String.class);
@@ -36,6 +40,11 @@ public class BetterMessageResource extends AbstractBetterResource<Message, Strin
     protected void updateRecord(Message body, String recordKey) {
         body.setKey(recordKey);
         messageService.createOrUpdateMessage(body);
+    }
+
+    @Override
+    protected void deleteRecord(String recordKey) {
+        messageService.delete(recordKey);
     }
 
 }

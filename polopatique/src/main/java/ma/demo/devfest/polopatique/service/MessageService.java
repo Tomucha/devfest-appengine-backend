@@ -14,4 +14,5 @@ public interface MessageService {
 
     Message getMessage(String key);
 
+    void delete(String key);
 }

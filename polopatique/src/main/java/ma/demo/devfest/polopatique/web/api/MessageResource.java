@@ -21,8 +21,12 @@ public class MessageResource extends HttpServlet {
 
     private Gson gson = new Gson();
 
-    @Inject
     private MessageService messageService;
+
+    @Inject
+    public void setMessageService(MessageService messageService) {
+        this.messageService = messageService;
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -56,7 +60,6 @@ public class MessageResource extends HttpServlet {
         resp.sendRedirect(req.getServletPath()+"/"+body.getKey());
     }
 
-
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageKey = readMessageIdFromRequest(req);
@@ -72,11 +75,25 @@ public class MessageResource extends HttpServlet {
         messageService.createOrUpdateMessage(body);
 
         resp.sendRedirect(req.getServletPath()+"/"+body.getKey());
+    }
 
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String messageKey = readMessageIdFromRequest(req);
+        if (messageKey == null) {
+            respond(resp, 404, "Co jako mazes? Chce to neco za lomitko.");
+            return;
+        }
+        messageService.delete(messageKey);
+        respond(resp, 200, "Deleted");
     }
 
     private void respond(HttpServletResponse resp, int code, String message) throws IOException {
-        resp.sendError(code, message);
+        if (code < 400) {
+            resp.setStatus(code);
+        } else {
+            resp.sendError(code, message);
+        }
     }
 
     private void respond(HttpServletResponse resp, Object data) throws IOException {

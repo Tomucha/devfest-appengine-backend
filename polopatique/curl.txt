@@ -13,7 +13,8 @@ curl --include --header "Content-Type: application/json" \
         \"message\": \"Ahoj vsichni, tohle je druhý super message.\"
     }" http://localhost:8080/api/messages
 
-
 curl --include --request GET http://localhost:8080/api/messages
 
 curl --include --request GET http://localhost:8080/api/messages/prvni.klic
+
+curl --include --request DELETE http://localhost:8080/api/messages/prvni.klic
