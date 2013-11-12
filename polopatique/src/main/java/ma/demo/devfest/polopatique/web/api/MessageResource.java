@@ -32,14 +32,14 @@ public class MessageResource extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageKey = readMessageIdFromRequest(req);
         if (messageKey == null) {
-            respond(resp, messageService.findMessages());
+            respond(resp, 200, messageService.findMessages());
 
         } else {
             Message found = messageService.getMessage(messageKey);
             if (found == null) {
-                respond(resp, 404, "Nic takoveho ona nema");
+                respond(resp, 404);
             } else {
-                respond(resp, found);
+                respond(resp, 200, found);
             }
         }
     }
@@ -49,7 +49,7 @@ public class MessageResource extends HttpServlet {
         String messageKey = readMessageIdFromRequest(req);
 
         if (messageKey != null) {
-            respond(resp, 404, "Co jako za tim lomitkem?");
+            respond(resp, 404);
             return;
         }
 
@@ -65,7 +65,7 @@ public class MessageResource extends HttpServlet {
         String messageKey = readMessageIdFromRequest(req);
 
         if (messageKey == null) {
-            respond(resp, 404, "Kam jako PUTujes? Neco dej za lomitko.");
+            respond(resp, 404);
             return;
         }
 
@@ -81,25 +81,22 @@ public class MessageResource extends HttpServlet {
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageKey = readMessageIdFromRequest(req);
         if (messageKey == null) {
-            respond(resp, 404, "Co jako mazes? Chce to neco za lomitko.");
+            respond(resp, 404);
             return;
         }
         messageService.delete(messageKey);
-        respond(resp, 200, "Deleted");
+        respond(resp, 200);
     }
 
-    private void respond(HttpServletResponse resp, int code, String message) throws IOException {
-        if (code < 400) {
-            resp.setStatus(code);
-        } else {
-            resp.sendError(code, message);
-        }
+    private void respond(HttpServletResponse resp, int code) throws IOException {
+        resp.setStatus(code);
     }
 
-    private void respond(HttpServletResponse resp, Object data) throws IOException {
+    private void respond(HttpServletResponse resp, int code, Object data) throws IOException {
+        resp.setStatus(code);
         resp.setContentType("application/json");
         resp.getOutputStream().write(
-                gson.toJson(data).getBytes("UTF-8")
+            gson.toJson(data).getBytes("UTF-8")
         );
     }
 

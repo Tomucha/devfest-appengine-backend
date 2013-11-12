@@ -34,10 +34,10 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ID_TYPE recordId = readRecordIdFromRequest(req);
         if (recordId == null) {
-            respond(resp, findRecords(req));
+            respond(resp, 200, findRecords(req));
 
         } else {
-            respond(resp, findRecord(recordId));
+            respond(resp, 200, findRecord(recordId));
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
         ID_TYPE recordId = readRecordIdFromRequest(req);
 
         if (recordId != null) {
-            respond(resp, 404, "Co jako za tim lomitkem? Tam nic být nemá!");
+            respond(resp, 404);
             return;
         }
 
@@ -64,7 +64,7 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
         ID_TYPE recordKey = readRecordIdFromRequest(req);
 
         if (recordKey == null) {
-            respond(resp, 404, "Kam jako PUTujes? Neco dej za lomitko.");
+            respond(resp, 404);
             return;
         }
 
@@ -81,23 +81,20 @@ public abstract class AbstractBetterResource<RESOURCE_TYPE, ID_TYPE> extends Htt
         ID_TYPE recordKey = readRecordIdFromRequest(req);
 
         if (recordKey == null) {
-            respond(resp, 404, "Co to deletujes? Dej neco za lomitko.");
+            respond(resp, 404);
             return;
         }
 
         deleteRecord(recordKey);
-        respond(resp, 200, "Deleted");
+        respond(resp, 200);
     }
 
-    private void respond(HttpServletResponse resp, int code, String message) throws IOException {
-        if (code < 400) {
-            resp.setStatus(code);
-        } else {
-            resp.sendError(code, message);
-        }
+    private void respond(HttpServletResponse resp, int code) throws IOException {
+        resp.setStatus(code);
     }
 
-    private void respond(HttpServletResponse resp, Object data) throws IOException {
+    private void respond(HttpServletResponse resp, int status, Object data) throws IOException {
+        resp.setStatus(status);
         resp.setContentType("application/json");
         resp.getOutputStream().write(
                 gson.toJson(data).getBytes("UTF-8")
