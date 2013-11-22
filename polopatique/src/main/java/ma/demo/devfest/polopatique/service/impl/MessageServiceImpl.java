@@ -2,6 +2,7 @@ package ma.demo.devfest.polopatique.service.impl;
 
 import com.google.inject.Guice;
 import com.googlecode.objectify.Objectify;
+import com.googlecode.objectify.ObjectifyService;
 import com.googlecode.objectify.Work;
 import ma.demo.devfest.polopatique.domain.Message;
 import ma.demo.devfest.polopatique.service.MessageService;
@@ -10,6 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Provider;
 import java.util.Date;
 import java.util.logging.Logger;
+
+import static com.googlecode.objectify.ObjectifyService.ofy;
 
 /**
  *
@@ -20,11 +23,8 @@ public class MessageServiceImpl implements MessageService {
 
     private Logger log = Logger.getLogger(MessageServiceImpl.class.getName());
 
-    private Provider<Objectify> ofyProvider;
-
-    @Inject
-    public void setOfyProvider(OfyProvider ofyProvider) {
-        this.ofyProvider = ofyProvider;
+    {
+        ObjectifyService.register(Message.class);
     }
 
     @Override
@@ -66,10 +66,6 @@ public class MessageServiceImpl implements MessageService {
     @Override
     public void delete(String key) {
         ofy().delete().key(Message.createOfyKey(key)).now();
-    }
-
-    private Objectify ofy() {
-        return ofyProvider.get();
     }
 
 }

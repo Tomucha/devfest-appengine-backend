@@ -14,6 +14,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Logger;
 
+/**
+ *
+ * Tohle je nase polopaticke REST API nad {@link Message}.
+ * A jelikož je skutečně absurdně polopatické, je dobré tak leda na pochopení toho co se pak děje v {@link AbstractBetterResource}
+ * a {@link BetterMessageResource}.
+ *
+ */
 @Singleton
 public class MessageResource extends HttpServlet {
 
@@ -28,6 +35,12 @@ public class MessageResource extends HttpServlet {
         this.messageService = messageService;
     }
 
+    /**
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String messageKey = readMessageIdFromRequest(req);
