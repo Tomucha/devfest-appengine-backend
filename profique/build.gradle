@@ -1,0 +1,37 @@
+apply plugin: 'jetty'
+apply plugin: 'war'
+apply plugin: 'idea'
+apply plugin: 'gae'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-gae-plugin:0.9'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.googlecode.objectify:objectify:4.0b3'
+    compile 'javax.servlet:servlet-api:2.5'
+    compile 'org.slf4j:slf4j-api:1.7.5'
+    runtime 'org.slf4j:slf4j-jdk14:1.7.5'
+    compile 'com.google.appengine:appengine-api-1.0-sdk:1.8.6'
+    compile 'com.google.appengine:appengine-api-labs:1.8.6'
+
+    runtime 'com.sun.jersey:jersey-core:1.17.1'
+    compile 'com.sun.jersey:jersey-server:1.17.1'
+    compile 'com.sun.jersey:jersey-servlet:1.17.1'
+    compile 'com.sun.jersey.contribs:jersey-guice:1.17.1'
+    compile 'javax.ws.rs:jsr311-api:1.1.1'
+    compile 'com.google.code.gson:gson:2.2.4'
+
+    //    compile 'com.google.appengine:appengine-endpoints:1.8.6'
+}
+
+httpPort = 8080
