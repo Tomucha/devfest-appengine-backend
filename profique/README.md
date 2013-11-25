@@ -13,4 +13,4 @@ Pokud zdárně rozběhnete, chcete se jít podívat na třídy:
 - [REST API pomocí Jersey](src/main/java/ma/demo/devfest/profique/web/api/MessageResource.java)
 - [AOP](src/main/java/ma/demo/devfest/profique/guice/ServiceModule.java)
 - [konfigurace Jersey](src/main/java/ma/demo/devfest/profique/web/api/jersey)
-- [autorizace pomocí hlavičky "Authorization"](/src/main/java/ma/demo/devfest/profique/web/api/jersey/JerseyAuthFilter.java) a [request-scope beany](src/main/java/ma/demo/devfest/profique/util/CallContext.java)
+- [autorizace pomocí hlavičky "Authorization"](src/main/java/ma/demo/devfest/profique/web/api/jersey/JerseyAuthFilter.java) a [request-scope beany](src/main/java/ma/demo/devfest/profique/util/CallContext.java)
