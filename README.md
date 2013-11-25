@@ -5,7 +5,7 @@ devfest-appengine-backend
 Příklady jsou různě složité, podle toho, jak velké nároky na čistotu provedení máte.
 S příbývající čistotou se množí vhodné technologie a tím se vše poněkud komplikuje.
 
-U všech tří příkladů jde o totéž - jednoduchá AppEngine aplikace pro zprávu textů vaší aplikace.
+U všech tří příkladů jde o totéž - jednoduchá AppEngine aplikace pro správu textů vaší aplikace.
 Každý text má klíč a hodnotu. Jako to znáte např. z Androidu:
 
 ```
@@ -14,6 +14,8 @@ Každý text má klíč a hodnotu. Jako to znáte např. z Androidu:
 
 Všechny příklady jsou vytvořeny tak, abyste je mohli snadno rozšiřovat o další funkce.  Vyhnul jsem se tomu, abych příklady
 zasvinil nějakými svými postupy a návyky, mělo by to být pouze nezbytné minimum, které už si doohnete podle chuti.
+
+Příklady (nebo "vzory", chcete-li) vznikly pro přednášku "AppEngine jako backend Vaší mobilní appky" na [DevFestCZ 2013](http://www.devfest.cz).
 
 Polopatique
 -----------
@@ -48,6 +50,9 @@ Proprietique
 A ještě jsem se pokusil totéž vytvořit pomocí GAE endpoints, to najdete v adresáři [proprietique](proprietique) (čti: proprietik).
 To mi bohužel funguje jen na lokálním SDK, po uploadu do GAE ne. No a protože se nechystám endpoints zatím používat,
 moc se mi nechce se v tom plácat :-)
+
+Zatím se pokochejte vzorovým [příkladem od Google](https://github.com/GoogleCloudPlatform/appengine-endpoints-tictactoe-java-maven).
+Ten ale neřeší dependency injection, nepoužívá Objectify, ... tak to není pro mě.
 
 A cože s tím?
 =============
