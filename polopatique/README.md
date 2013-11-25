@@ -39,3 +39,11 @@ V gradle používám plugin "gae", takže by vám alternativně mělo fungovat s
 export APPENGINE_HOME=/moje/super/cesta/appengine-java-sdk-1.8.6/;
 gradle gaeRun;
 ```
+Kam dál
+=======
+
+Pokud zdárně rozběhnete, chcete se jít podívat na třídy:
+- [Message](src/main/java/ma/demo/devfest/polopatique/domain/Message.java) - persitentní entita
+- [MessageService](src/main/java/ma/demo/devfest/polopatique/service/MessageService.java) - servisa nad entitou
+- [konfirace Guice](src/main/java/ma/demo/devfest/polopatique/guice/GuiceConfig.java)
+- [implementace REST API](src/main/java/ma/demo/devfest/polopatique/web/api)

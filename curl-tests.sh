@@ -17,10 +17,12 @@ curl --include --header "Content-Type: application/json; charset=UTF-8" \
      --request POST \
      --data-binary "{
         \"key\":\"vyherce\",
-        \"message\": \"Tomucha!\"
+        \"message\": \"Tomucha\!\"
     }" http://matelier-sandbox.appspot.com/api/messages;
 
 curl --include --request GET http://localhost:8080/api/messages/prvni.klic;
+
+curl --include --request GET http://matelier-sandbox.appspot.com/api/messages/vyherce;
 
 curl --include --request GET --header "Authorization: Ja su Franta" http://localhost:8080/api/messages;
 

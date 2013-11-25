@@ -21,10 +21,9 @@ public class ServiceModule extends AbstractModule {
         bind(MessageService.class).to(MessageServiceImpl.class);
         bind(Objectify.class).toProvider(OfyProvider.class);
 
+        // ... a tady mocná AOP kouzla!
         MethodInterceptor logger = new CallLogger();
         requestInjection(logger);
-
-
         bindInterceptor(Matchers.any(), Matchers.annotatedWith(LogCalls.class), logger);
         bindInterceptor(Matchers.annotatedWith(LogCalls.class), Matchers.any(), new MethodInterceptor[]{logger});
     }

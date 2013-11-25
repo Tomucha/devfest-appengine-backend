@@ -5,3 +5,5 @@ build
 out
 *.class
 .gradle
+proprietique/proprietique-android-app/
+.DS_Store
