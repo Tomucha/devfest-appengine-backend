@@ -30,8 +30,21 @@ dependencies {
     compile 'com.sun.jersey.contribs:jersey-guice:1.17.1'
     compile 'javax.ws.rs:jsr311-api:1.1.1'
     compile 'com.google.code.gson:gson:2.2.4'
+    testCompile 'junit:junit:4.11',
+            'com.google.appengine:appengine-testing:1.8.6',
+            'com.google.appengine:appengine-api-stubs:1.8.6',
+            'org.mockito:mockito-all:1.8.4'
+
 
     //    compile 'com.google.appengine:appengine-endpoints:1.8.6'
+}
+
+test {
+    testLogging {
+        showStandardStreams = true
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
 }
 
 httpPort = 8080
