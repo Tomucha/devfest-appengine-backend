@@ -23,8 +23,13 @@ public class MessageServiceImpl implements MessageService {
 
     private Provider<Objectify> ofyProvider;
 
-    @Inject
+    //@Inject
     public void setOfyProvider(OfyProvider ofyProvider) {
+        this.ofyProvider = ofyProvider;
+    }
+
+    @Inject
+    public MessageServiceImpl(OfyProvider ofyProvider) {
         this.ofyProvider = ofyProvider;
     }
 
