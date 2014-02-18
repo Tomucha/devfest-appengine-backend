@@ -2,6 +2,7 @@ apply plugin: 'jetty'
 apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'gae'
+apply plugin: "groovy"
 
 buildscript {
     repositories {
@@ -18,9 +19,11 @@ repositories {
 
 dependencies {
     compile 'com.googlecode.objectify:objectify:4.0b3'
+    compile 'org.codehaus.groovy:groovy-all:2.2.0'
     compile 'javax.servlet:servlet-api:2.5'
     compile 'org.slf4j:slf4j-api:1.7.5'
     runtime 'org.slf4j:slf4j-jdk14:1.7.5'
+
     compile 'com.google.appengine:appengine-api-1.0-sdk:1.8.6'
     compile 'com.google.appengine:appengine-api-labs:1.8.6'
 
@@ -30,10 +33,16 @@ dependencies {
     compile 'com.sun.jersey.contribs:jersey-guice:1.17.1'
     compile 'javax.ws.rs:jsr311-api:1.1.1'
     compile 'com.google.code.gson:gson:2.2.4'
+    testCompile 'org.spockframework:spock-core:0.7-groovy-2.0', {
+        exclude group: 'org.codehaus.groovy', module: 'groovy-all'
+    }
     testCompile 'junit:junit:4.11',
             'com.google.appengine:appengine-testing:1.8.6',
             'com.google.appengine:appengine-api-stubs:1.8.6',
-            'org.mockito:mockito-all:1.8.4'
+            'org.mockito:mockito-all:1.8.4',
+            'cglib:cglib-nodep:2.2.2',
+            'org.objenesis:objenesis:1.2'
+
 
 
     //    compile 'com.google.appengine:appengine-endpoints:1.8.6'
